@@ -1,0 +1,188 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 300;
+  line-height: 1.25;
+}
+
+.site {
+  background: radial-gradient(50% 50% at 50% 50%, rgba(123, 131, 126, 0.9) 0%, rgba(54, 75, 73, 0.9) 100%), #364b49;
+  background-repeat: no-repeat;
+  color: #FFF;
+  min-height: 120vh; /* allows room for scrolling to see parallax */
+  height: 100%;
+}
+
+.site__header,
+.site__nav-list {
+  display: flex;
+}
+
+.site__header {
+  position: fixed;
+  top: 0;
+  right: 1.25rem;
+  writing-mode: vertical-rl;
+  height: 100%;
+  padding: 1.25rem 0;
+  z-index: 20; /* to overlap the grid component */
+}
+
+.site__header > * {
+  flex: 1 1 auto;
+  padding-bottom: .625rem;
+}
+
+.site__nav-list {
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+.site__nav {
+  padding-bottom: 0;
+}
+
+.site__nav-link {
+  display: block;
+  text-decoration: none;
+  color: #FFF;
+  padding-bottom: .625rem;
+}
+
+.site__nav-list li:last-child .site__nav-link {
+  padding-bottom: 0;
+}
+
+.block {
+  display: block;
+}
+
+.main {
+  padding: 5rem 0;
+  display: flex;
+  justify-content: center; /* center content horizontally */
+  align-items: center; /* center content vertically */
+  min-height: 100vh; /* make content as tall as the viewport */
+  width: 100%;
+}
+
+.container {
+  position: relative;
+}
+
+.heading {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 40rem) {
+    .heading {
+        font-size: 2rem;
+        position: absolute;
+        left: 0;
+        top: 6rem;
+        z-index: 10; /* to be on top of grid */
+    }
+}
+
+mark {
+  color: #FFF;
+  background-color: #000;
+  line-height: 1.35;
+  padding: 6px;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.grid-container {
+  margin: 0 auto;
+  padding: 0 10%;
+  max-width: 65rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  position: relative;
+  grid-template-rows: repeat(12, 1fr);
+}
+
+.grid__item--bg {
+  grid-column: 2 / span 9;
+  z-index: 0;
+  grid-row: 1 / -1;
+}
+
+.grid__item--portrait-half {
+  grid-column: 6 / span 6;
+  z-index: 2;
+  grid-row: 1 / -1;
+  clip-path: polygon(5% 10%, 27% 3%, 94% 25%, 84% 98%, 39% 98%, 11% 98%, 4% 66%, 4% 34%);
+}
+
+.grid__item--portrait-neck {
+  clip-path: polygon(5% 3%, 96% 4%, 95% 95%, 6% 95%, 20% 30%);
+  grid-column: 5 / span 4;
+  grid-row: 6 / 11;
+  z-index: 3;
+}
+
+.grid__item--portrait-left {
+  clip-path: polygon(10% 19%, 93% 15%, 90% 88%, 13% 92%);
+  grid-column: 2 / span 4;
+  grid-row: 6 / 12;
+  z-index: 4;
+}
+
+.grid__item--portrait-eye {
+  clip-path: polygon(4% 13%, 84% 12%, 86% 34%, 80% 45%, 80% 76%, 10% 90%);
+  grid-column: 4 / span 2;
+  grid-row: 3 / 5;
+  z-index: 5;
+  width: 70%;
+  margin-top: 20%;
+  justify-self: center;
+}
+
+.grid__item--portrait-shirt {
+  clip-path: polygon(3% 2%, 50% 25%, 97% 8%, 97% 97%, 3% 98%);
+  grid-column: 1 / span 2;
+  grid-row: 11 / -1;
+  z-index: 6;
+}
+
+.grid__item--portrait-bg-1 {
+  clip-path: polygon(14% 13%, 84% 12%, 86% 34%, 90% 66%, 30% 76%, 10% 79%);
+  grid-column: 1 / span 2;
+  grid-row: 1 / 4;
+  z-index: 8;
+}
+
+.grid__item--portrait-bg-2 {
+  clip-path: polygon(9% 4%, 80% 0%, 100% 100%, 0% 100%);
+  grid-column: 11 / -1;
+  grid-row: 2 / 7;
+  z-index: 8;
+}
+
+.grid__item--portrait-bg-3 {
+  clip-path: polygon(9% 4%, 80% 0%, 100% 100%, 0% 100%);
+  grid-column: 1 / span 3;
+  grid-row: 4 / 7;
+  z-index: 4;
+}
+
+.grid__item--portrait-bg-4 {
+  clip-path: polygon(5% 4%, 94% 3%, 97% 96%, 13% 96%);
+  grid-column: 10 / 12;
+  grid-row: 1 / 6;
+  z-index: 1;
+}
